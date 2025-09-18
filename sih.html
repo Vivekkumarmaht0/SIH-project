@@ -889,7 +889,130 @@
                     <div class="tourism-icon">🌲</div>
                     <h3>Eco-Tourism</h3>
                     <p>Immerse yourself in pristine forests, wildlife sanctuaries, and sustainable tourism experiences.</p>
+                    <a href="eco-tourism.html" class="feature-button interactive-btn">Explore Locations</a>
+                    <div id="ecoTourismDetails" class="eco-tourism-details" style="display: none;">
+                        <div class="eco-categories">
+                            <div class="eco-category">
+                                <h4>🦁 Wildlife & Parks</h4>
+                                <ul>
+                                    <li>Hazaribagh National Park (Hazaribagh)</li>
+                                    <li>Birsa Deer Park, Kalamati (Khunti)</li>
+                                    <li>Birsa Biological Park (Ranchi)</li>
+                                    <li>Dalma Wildlife Sanctuary (Saraikela Kharsawan)</li>
+                                    <li>Belta National Park (Latehar)</li>
+                                    <li>Crocodile Park (Ramgarh)</li>
+                                </ul>
+                            </div>
+                            <div class="eco-category">
+                                <h4>🌊 Lakes & Water Bodies</h4>
+                                <ul>
+                                    <li>Udhwa Lake Bird Sanctuaries (Sahebganj)</li>
+                                    <li>Dimna Lake (West Singhbhum)</li>
+                                    <li>Kamaldah Talab (Latehar)</li>
+                                    <li>Patratu Dam Boating (Ramgarh)</li>
+                                    <li>Ranchi Lake (Ranchi)</li>
+                                </ul>
+                            </div>
+                            <div class="eco-category">
+                                <h4>⛰️ Hills & Viewpoints</h4>
+                                <ul>
+                                    <li>Tagore Hill (Ranchi)</li>
+                                    <li>Nandan Pahar (Deoghar)</li>
+                                    <li>Hizla Pahar (Dumka)</li>
+                                    <li>Srishti Pahar (Dumka)</li>
+                                    <li>Trikuti (Deoghar)</li>
+                                    <li>Sunset Point, Netarhat (Latehar)</li>
+                                    <li>Sunrise Point, Netarhat (Latehar)</li>
+                                </ul>
+                            </div>
+                            <div class="eco-category">
+                                <h4>🌿 Gardens & Nature Parks</h4>
+                                <ul>
+                                    <li>Jubilee Park (West Singhbhum)</li>
+                                    <li>Nakshitra Van (Ranchi)</li>
+                                    <li>Biodiversity Park (Ranchi)</li>
+                                    <li>The Naspati Garden (Latehar)</li>
+                                    <li>Rock Garden (Ranchi)</li>
+                                    <li>Sidhu & Kanu Park (Ranchi)</li>
+                                    <li>Sidhu & Kanu Park (Saraikela Kharsawan)</li>
+                                </ul>
+                            </div>
+                            <div class="eco-category">
+                                <h4>🏞️ Valleys & Forests</h4>
+                                <ul>
+                                    <li>Chuttupalu Valley (Ramgarh)</li>
+                                    <li>Patratu Valley (Ramgarh)</li>
+                                    <li>Saranda Forest (West Singhbhum)</li>
+                                </ul>
+                            </div>
+                            <div class="eco-category">
+                                <h4>♨️ Natural Springs</h4>
+                                <ul>
+                                    <li>Suraj Khund (Hot Spring Water)</li>
+                                    <li>Tattapani Hot Water Spring (Latehar)</li>
+                                </ul>
+                            </div>
+                            <div class="eco-category">
+                                <h4>🌍 Special Attractions</h4>
+                                <ul>
+                                    <li>Tropic of Cancer (Ramgarh)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <style>
+                    .eco-tourism-card {
+                        position: relative;
+                        transition: all 0.4s ease;
+                    }
+                    .eco-tourism-details {
+                        margin-top: 1rem;
+                        text-align: left;
+                        max-height: 400px;
+                        overflow-y: auto;
+                        scrollbar-width: thin;
+                        scrollbar-color: #f4d03f rgba(255,255,255,0.1);
+                    }
+                    .eco-tourism-details::-webkit-scrollbar {
+                        width: 8px;
+                    }
+                    .eco-tourism-details::-webkit-scrollbar-track {
+                        background: rgba(255,255,255,0.1);
+                        border-radius: 4px;
+                    }
+                    .eco-tourism-details::-webkit-scrollbar-thumb {
+                        background: #f4d03f;
+                        border-radius: 4px;
+                    }
+                    .eco-categories {
+                        display: grid;
+                        gap: 1.5rem;
+                    }
+                    .eco-category h4 {
+                        color: #f4d03f;
+                        margin-bottom: 0.5rem;
+                        font-size: 1.1rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                    }
+                    .eco-category ul {
+                        list-style: none;
+                        padding: 0;
+                    }
+                    .eco-category li {
+                        padding: 0.3rem 0;
+                        color: white;
+                        font-size: 0.9rem;
+                        transition: all 0.3s ease;
+                        cursor: pointer;
+                    }
+                    .eco-category li:hover {
+                        color: #f4d03f;
+                        transform: translateX(5px);
+                    }
+                </style>
                 <div class="tourism-card fade-in">
                     <div class="tourism-icon">📿</div>
                     <h3>Mythological Sites</h3>
@@ -1022,6 +1145,55 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <section id="feedback" class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title fade-in">Feedback & Improvement</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <h3>⭐ StarVoice - Ratings & Reviews</h3>
+                    <p>Share your experience and help fellow travelers. Rate destinations, accommodations, and services while providing detailed reviews to improve tourism quality.</p>
+                    <div class="rating-container">
+                        <div class="stars">
+                            <span class="star" onclick="rate(1)">★</span>
+                            <span class="star" onclick="rate(2)">★</span>
+                            <span class="star" onclick="rate(3)">★</span>
+                            <span class="star" onclick="rate(4)">★</span>
+                            <span class="star" onclick="rate(5)">★</span>
+                        </div>
+                        <button class="feature-button interactive-btn" onclick="openReviewForm()">Write Review</button>
+                    </div>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3>💡 SuggestHub - Tourist Suggestions</h3>
+                    <p>Contribute to Jharkhand's tourism development. Share your ideas for improvements, suggest new attractions, or report areas that need attention.</p>
+                    <button class="feature-button interactive-btn" onclick="openSuggestionForm()">Submit Suggestion</button>
+                </div>
+            </div>
+        </div>
+        <style>
+            .rating-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+            .stars {
+                display: flex;
+                gap: 0.5rem;
+            }
+            .star {
+                font-size: 2rem;
+                color: #ddd;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+            .star:hover, .star.active {
+                color: #f4d03f;
+            }
+        </style>
     </section>
 
     <footer id="contact" class="footer">
@@ -1342,6 +1514,308 @@
             });
         });
 
+        // Eco-Tourism Location Data
+        const ecoLocations = {
+            "Udhwa Lake Bird Sanctuaries": {
+                category: "Lakes & Water Bodies",
+                location: "Sahebganj",
+                description: "A paradise for bird watchers, home to numerous migratory birds during winter.",
+                activities: ["Bird Watching", "Photography", "Nature Walks"],
+                bestTime: "November to March",
+                entryFee: "₹50 for Indians, ₹500 for foreigners",
+                timings: "6:00 AM to 6:00 PM",
+                howToReach: "30 km from Sahebganj railway station, accessible by taxi or local bus",
+                coordinates: "25.0227° N, 87.9094° E"
+            },
+            "Hazaribagh National Park": {
+                category: "Wildlife & Parks",
+                location: "Hazaribagh",
+                description: "Rich biodiversity with tigers, leopards, and various deer species.",
+                activities: ["Safari", "Wildlife Photography", "Nature Trails"],
+                bestTime: "October to March",
+                entryFee: "₹100 for Indians, ₹1000 for foreigners",
+                timings: "6:00 AM to 5:00 PM",
+                howToReach: "25 km from Hazaribagh town, regular buses and taxis available",
+                coordinates: "23.9570° N, 85.3647° E"
+            },
+            // Add more location data here
+        };
+
+        // Eco-Tourism Details Toggle
+        function toggleEcoTourismDetails() {
+            const details = document.getElementById('ecoTourismDetails');
+            const card = details.closest('.eco-tourism-card');
+            const isVisible = details.style.display !== 'none';
+            
+            if (!isVisible) {
+                details.style.display = 'block';
+                card.style.transform = 'scale(1.02)';
+                card.style.zIndex = '1';
+                
+                // Scroll to show full content if needed
+                setTimeout(() => {
+                    details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            } else {
+                details.style.display = 'none';
+                card.style.transform = '';
+                card.style.zIndex = '';
+            }
+        }
+
+        // Show location details in modal
+        function showLocationDetails(locationName) {
+            const location = ecoLocations[locationName] || {
+                category: "Information Coming Soon",
+                location: locationName.split('(')[1]?.replace(')', '') || "Jharkhand",
+                description: "We're currently gathering detailed information about this location.",
+                activities: ["Sightseeing", "Photography", "Nature Exploration"],
+                bestTime: "October to March (Generally best season)",
+                entryFee: "Contact local tourism office for current rates",
+                timings: "Usually dawn to dusk",
+                howToReach: "Contact local tourism office for directions",
+                coordinates: "Search on Google Maps"
+            };
+
+            const modal = document.createElement('div');
+            modal.className = 'modal location-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="close-button" onclick="closeModal(this)">&times;</button>
+                    <div class="location-content">
+                        <div class="location-header">
+                            <h2>${locationName}</h2>
+                            <p class="location-category">${location.category}</p>
+                        </div>
+                        
+                        <div class="location-grid">
+                            <div class="location-info">
+                                <div class="info-section">
+                                    <h3>📍 Location</h3>
+                                    <p>${location.location}</p>
+                                    <small class="coordinates">${location.coordinates}</small>
+                                </div>
+                                
+                                <div class="info-section">
+                                    <h3>📝 Description</h3>
+                                    <p>${location.description}</p>
+                                </div>
+
+                                <div class="info-section">
+                                    <h3>🎯 Activities</h3>
+                                    <ul class="activities-list">
+                                        ${location.activities.map(activity => `<li>${activity}</li>`).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <h3>🕒 Best Time to Visit</h3>
+                                        <p>${location.bestTime}</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <h3>💰 Entry Fee</h3>
+                                        <p>${location.entryFee}</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <h3>⏰ Timings</h3>
+                                        <p>${location.timings}</p>
+                                    </div>
+                                </div>
+
+                                <div class="info-section">
+                                    <h3>🚗 How to Reach</h3>
+                                    <p>${location.howToReach}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="location-actions">
+                                <button onclick="showDirections('${locationName}')" class="action-button">
+                                    🗺️ Get Directions
+                                </button>
+                                <button onclick="bookTickets('${locationName}')" class="action-button">
+                                    🎟️ Book Tickets
+                                </button>
+                                <button onclick="showNearbyPlaces('${locationName}')" class="action-button">
+                                    📍 Nearby Places
+                                </button>
+                                <button onclick="shareLocation('${locationName}')" class="action-button">
+                                    📤 Share
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('visible'), 10);
+
+            // Add custom styles for the location modal
+            if (!document.getElementById('location-modal-styles')) {
+                const style = document.createElement('style');
+                style.id = 'location-modal-styles';
+                style.textContent = `
+                    .location-modal .modal-content {
+                        max-width: 800px;
+                        background: linear-gradient(135deg, #1a4d3a 0%, #2d5a4a 100%);
+                        color: white;
+                    }
+                    .location-header {
+                        text-align: center;
+                        margin-bottom: 2rem;
+                    }
+                    .location-header h2 {
+                        color: #f4d03f;
+                        font-size: 2rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    .location-category {
+                        color: #f4d03f;
+                        font-style: italic;
+                    }
+                    .location-grid {
+                        display: grid;
+                        gap: 2rem;
+                    }
+                    .info-section {
+                        margin-bottom: 1.5rem;
+                    }
+                    .info-section h3 {
+                        color: #f4d03f;
+                        margin-bottom: 0.5rem;
+                    }
+                    .info-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                        gap: 1rem;
+                        margin: 1.5rem 0;
+                    }
+                    .info-item {
+                        background: rgba(255,255,255,0.1);
+                        padding: 1rem;
+                        border-radius: 10px;
+                    }
+                    .activities-list {
+                        list-style: none;
+                        padding: 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 0.5rem;
+                    }
+                    .activities-list li {
+                        background: rgba(244, 208, 63, 0.2);
+                        padding: 0.5rem 1rem;
+                        border-radius: 20px;
+                    }
+                    .coordinates {
+                        color: #f4d03f;
+                        font-size: 0.8rem;
+                    }
+                    .location-actions {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                        gap: 1rem;
+                        margin-top: 1rem;
+                    }
+                    .action-button {
+                        background: transparent;
+                        border: 2px solid #f4d03f;
+                        color: #f4d03f;
+                        padding: 0.8rem;
+                        border-radius: 25px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    }
+                    .action-button:hover {
+                        background: #f4d03f;
+                        color: #1a4d3a;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Location action functions
+        function showDirections(locationName) {
+            const location = ecoLocations[locationName];
+            if (location && location.coordinates) {
+                window.open(`https://www.google.com/maps/search/?api=1&query=${location.coordinates}`);
+            } else {
+                alert('Opening map for ' + locationName);
+            }
+        }
+
+        function bookTickets(locationName) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content booking-content">
+                    <button class="close-button" onclick="closeModal(this)">&times;</button>
+                    <h2>Book Tickets for ${locationName}</h2>
+                    <form id="bookingForm" onsubmit="handleBooking(event, '${locationName}')">
+                        <div class="form-group">
+                            <label>Visit Date:</label>
+                            <input type="date" required min="${new Date().toISOString().split('T')[0]}">
+                        </div>
+                        <div class="form-group">
+                            <label>Number of Visitors:</label>
+                            <input type="number" required min="1" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label>Type of Tickets:</label>
+                            <select required>
+                                <option value="indian">Indian Citizen</option>
+                                <option value="foreign">Foreign National</option>
+                                <option value="student">Student</option>
+                                <option value="senior">Senior Citizen</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="feature-button interactive-btn">Book Now</button>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('visible'), 10);
+        }
+
+        function handleBooking(event, locationName) {
+            event.preventDefault();
+            const modal = event.target.closest('.modal');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h2 style="color: #f4d03f;">Booking Confirmed! 🎉</h2>
+                    <p style="color: white; margin: 1rem 0;">Your tickets for ${locationName} have been booked successfully.</p>
+                    <p style="color: white; margin: 1rem 0;">Booking reference: #${Math.random().toString(36).substr(2, 9).toUpperCase()}</p>
+                    <button class="feature-button interactive-btn" onclick="closeModal(this)">Close</button>
+                </div>
+            `;
+        }
+
+        function showNearbyPlaces(locationName) {
+            alert(`🔍 Discovering places near ${locationName}...\nThis feature will show you:\n• Nearby attractions\n• Restaurants\n• Hotels\n• Transportation options`);
+        }
+
+        function shareLocation(locationName) {
+            if (navigator.share) {
+                navigator.share({
+                    title: `Visit ${locationName} in Jharkhand`,
+                    text: `Check out ${locationName}, a beautiful destination in Jharkhand!`,
+                    url: window.location.href
+                });
+            } else {
+                alert(`Share this location:\n${window.location.href}#${locationName.toLowerCase().replace(/\s+/g, '-')}`);
+            }
+        }
+
+        // Add location click handler
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('.eco-category li')) {
+                const locationName = e.target.textContent.split('(')[0].trim();
+                showLocationDetails(locationName);
+            }
+        });
+
         // Add ripple animation keyframes
         const style = document.createElement('style');
         style.textContent = `
@@ -1366,6 +1840,152 @@
                 element.style.transform = 'scale(1) rotate(0deg)';
                 element.style.filter = 'none';
             });
+        });
+
+        // StarVoice Rating System
+        let currentRating = 0;
+        
+        function rate(stars) {
+            currentRating = stars;
+            document.querySelectorAll('.star').forEach((star, index) => {
+                star.classList.toggle('active', index < stars);
+            });
+            localStorage.setItem('lastRating', stars);
+        }
+
+        // Review Form
+        function openReviewForm() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="close-button" onclick="closeModal(this)">&times;</button>
+                    <h2 style="color: #f4d03f; margin-bottom: 1.5rem;">Write Your Review</h2>
+                    <form id="reviewForm" style="color: white;">
+                        <label>Location/Service Name:</label>
+                        <input type="text" name="location" required style="width: 100%; margin-bottom: 1rem;">
+                        <label>Visit Date:</label>
+                        <input type="date" name="visitDate" required style="width: 100%; margin-bottom: 1rem;">
+                        <label>Rating:</label>
+                        <div class="stars" style="margin-bottom: 1rem;">
+                            <span class="star" onclick="setFormRating(1)">★</span>
+                            <span class="star" onclick="setFormRating(2)">★</span>
+                            <span class="star" onclick="setFormRating(3)">★</span>
+                            <span class="star" onclick="setFormRating(4)">★</span>
+                            <span class="star" onclick="setFormRating(5)">★</span>
+                        </div>
+                        <input type="hidden" name="rating" id="ratingInput" value="0">
+                        <label>Your Experience:</label>
+                        <textarea name="experience" required style="width: 100%; height: 150px; margin-bottom: 1rem; padding: 0.8rem; border-radius: 10px;"></textarea>
+                        <label>Upload Photos (optional):</label>
+                        <input type="file" name="photos" accept="image/*" multiple style="width: 100%; margin-bottom: 1rem;">
+                        <button type="submit" class="feature-button interactive-btn" style="width: 100%;">Submit Review</button>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('visible'), 10);
+        }
+
+        function setFormRating(stars) {
+            const form = document.getElementById('reviewForm');
+            const ratingInput = form.querySelector('#ratingInput');
+            const starElements = form.querySelectorAll('.star');
+            
+            ratingInput.value = stars;
+            starElements.forEach((star, index) => {
+                star.classList.toggle('active', index < stars);
+            });
+        }
+
+        // Suggestion Form
+        function openSuggestionForm() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="close-button" onclick="closeModal(this)">&times;</button>
+                    <h2 style="color: #f4d03f; margin-bottom: 1.5rem;">Submit Your Suggestion</h2>
+                    <form id="suggestionForm" style="color: white;">
+                        <label>Category:</label>
+                        <select name="category" required style="width: 100%; margin-bottom: 1rem; padding: 0.8rem; border-radius: 10px;">
+                            <option value="">Select a category</option>
+                            <option value="infrastructure">Infrastructure Improvement</option>
+                            <option value="facilities">Tourist Facilities</option>
+                            <option value="attractions">New Attractions</option>
+                            <option value="services">Services Enhancement</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div id="otherCategory" style="display: none;">
+                            <label>Specify Category:</label>
+                            <input type="text" name="otherCategoryText" style="width: 100%; margin-bottom: 1rem;">
+                        </div>
+                        <label>Location:</label>
+                        <input type="text" name="location" required style="width: 100%; margin-bottom: 1rem;">
+                        <label>Your Suggestion:</label>
+                        <textarea name="suggestion" required style="width: 100%; height: 150px; margin-bottom: 1rem; padding: 0.8rem; border-radius: 10px;" 
+                            placeholder="Please provide specific details about your suggestion..."></textarea>
+                        <label>Priority Level:</label>
+                        <select name="priority" required style="width: 100%; margin-bottom: 1rem;">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                        <label>Supporting Document (optional):</label>
+                        <input type="file" name="document" accept=".pdf,.doc,.docx,image/*" style="width: 100%; margin-bottom: 1rem;">
+                        <button type="submit" class="feature-button interactive-btn" style="width: 100%;">Submit Suggestion</button>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('visible'), 10);
+
+            // Handle "Other" category
+            const categorySelect = modal.querySelector('select[name="category"]');
+            const otherCategory = modal.querySelector('#otherCategory');
+            categorySelect.addEventListener('change', function() {
+                otherCategory.style.display = this.value === 'other' ? 'block' : 'none';
+            });
+        }
+
+        function closeModal(button) {
+            const modal = button.closest('.modal');
+            modal.classList.remove('visible');
+            setTimeout(() => modal.remove(), 300);
+        }
+
+        // Form submission handlers with data storage
+        document.addEventListener('submit', function(e) {
+            if (e.target.id === 'reviewForm' || e.target.id === 'suggestionForm') {
+                e.preventDefault();
+                const formData = new FormData(e.target);
+                const data = Object.fromEntries(formData);
+                
+                // Store in localStorage
+                const storageKey = e.target.id === 'reviewForm' ? 'reviews' : 'suggestions';
+                const existingData = JSON.parse(localStorage.getItem(storageKey) || '[]');
+                data.id = Date.now();
+                data.timestamp = new Date().toISOString();
+                existingData.push(data);
+                localStorage.setItem(storageKey, JSON.stringify(existingData));
+
+                // Show success message
+                const modal = e.target.closest('.modal');
+                modal.innerHTML = `
+                    <div class="modal-content" style="text-align: center;">
+                        <h2 style="color: #f4d03f; margin-bottom: 1rem;">Thank You! 🙏</h2>
+                        <p style="color: white; margin-bottom: 1rem;">Your ${e.target.id === 'reviewForm' ? 'review' : 'suggestion'} has been successfully submitted!</p>
+                        <p style="color: white; margin-bottom: 2rem;">Reference ID: #${data.id}</p>
+                        <button class="feature-button interactive-btn" onclick="closeModal(this)">Close</button>
+                    </div>
+                `;
+
+                // Clear the current rating
+                if (e.target.id === 'reviewForm') {
+                    currentRating = 0;
+                    document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
+                }
+            }
         });
     </script>
 </body>
