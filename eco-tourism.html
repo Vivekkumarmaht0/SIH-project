@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Tourism Destinations - Jharkhand Tourism</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #1a4d3a 0%, #2d5a4a 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 77, 58, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f4d03f;
+            text-decoration: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-bottom: 3rem;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #f4d03f;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+        }
+
+        .category-btn {
+            padding: 0.8rem 1.5rem;
+            background: transparent;
+            border: 2px solid #f4d03f;
+            color: #f4d03f;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: #f4d03f;
+            color: #1a4d3a;
+        }
+
+        /* Location Grid */
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .location-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .location-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .location-card:hover .location-image {
+            transform: scale(1.1);
+        }
+
+        .location-info {
+            padding: 1.5rem;
+        }
+
+        .location-name {
+            color: #f4d03f;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-category {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .location-description {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .view-details-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #f4d03f;
+            color: #1a4d3a;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .view-details-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(244, 208, 63, 0.3);
+        }
+
+        /* Location Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a4d3a 0%, #2d5a4a 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.visible .modal-content {
+            transform: scale(1);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: #f4d03f;
+        }
+
+        .loading::after {
+            content: "...";
+            animation: dots 1.5s infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: "."; }
+            40% { content: ".."; }
+            60%, 100% { content: "..."; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="sih.html" class="logo">🌿 Jharkhand Tourism</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Eco-Tourism Destinations</h1>
+        
+        <div class="category-nav">
+            <button class="category-btn active" data-category="all">All Destinations</button>
+            <button class="category-btn" data-category="wildlife">Wildlife & Parks</button>
+            <button class="category-btn" data-category="lakes">Lakes & Water Bodies</button>
+            <button class="category-btn" data-category="hills">Hills & Viewpoints</button>
+            <button class="category-btn" data-category="gardens">Gardens & Nature Parks</button>
+            <button class="category-btn" data-category="valleys">Valleys & Forests</button>
+            <button class="category-btn" data-category="springs">Natural Springs</button>
+            <button class="category-btn" data-category="special">Special Attractions</button>
+        </div>
+
+        <div class="location-grid" id="locationGrid">
+            <!-- Location cards will be added here dynamically -->
+            <div class="loading">Loading destinations</div>
+        </div>
+    </main>
+
+    <script>
+        // Location data with enhanced details and image URLs
+        const ecoLocations = {
+            "Udhwa Lake Bird Sanctuaries": {
+                category: "lakes",
+                categoryDisplay: "Lakes & Water Bodies",
+                location: "Sahebganj",
+                description: "A paradise for bird watchers, home to numerous migratory birds during winter.",
+                activities: ["Bird Watching", "Photography", "Nature Walks", "Boating"],
+                bestTime: "November to March",
+                entryFee: "₹50 for Indians, ₹500 for foreigners",
+                timings: "6:00 AM to 6:00 PM",
+                howToReach: "30 km from Sahebganj railway station, accessible by taxi or local bus",
+                coordinates: "25.0227° N, 87.9094° E",
+                images: [
+                    "https://example.com/udhwa1.jpg",
+                    "https://example.com/udhwa2.jpg",
+                    "https://example.com/udhwa3.jpg"
+                ],
+                facilities: ["Bird Watching Towers", "Guide Services", "Rest Areas", "Photography Zones"],
+                nearbyAttractions: ["Sahebganj Museum", "Rajmahal Hills", "Ganga Ghat"]
+            },
+            "Hazaribagh National Park": {
+                category: "wildlife",
+                categoryDisplay: "Wildlife & Parks",
+                location: "Hazaribagh",
+                description: "Rich biodiversity with tigers, leopards, and various deer species.",
+                activities: ["Safari", "Wildlife Photography", "Nature Trails", "Bird Watching"],
+                bestTime: "October to March",
+                entryFee: "₹100 for Indians, ₹1000 for foreigners",
+                timings: "6:00 AM to 5:00 PM",
+                howToReach: "25 km from Hazaribagh town, regular buses and taxis available",
+                coordinates: "23.9570° N, 85.3647° E",
+                images: [
+                    "https://example.com/hazaribagh1.jpg",
+                    "https://example.com/hazaribagh2.jpg",
+                    "https://example.com/hazaribagh3.jpg"
+                ],
+                facilities: ["Safari Vehicles", "Rest House", "Guide Services", "Canteen"],
+                nearbyAttractions: ["Hazaribagh Lake", "Canary Hill", "Hazaribagh Wildlife Sanctuary"]
+            }
+            // Add more locations with their details and images
+        };
+
+        // Function to create location cards
+        function createLocationCard(name, data) {
+            return `
+                <div class="location-card" data-category="${data.category}">
+                    <img src="${data.images[0]}" alt="${name}" class="location-image" 
+                         onerror="this.src='https://via.placeholder.com/400x300/1a4d3a/f4d03f?text=${encodeURIComponent(name)}'" />
+                    <div class="location-info">
+                        <h3 class="location-name">${name}</h3>
+                        <div class="location-category">${data.categoryDisplay}</div>
+                        <p class="location-description">${data.description}</p>
+                        <button class="view-details-btn" onclick="showLocationDetails('${name}')">View Details</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to filter locations by category
+        function filterLocations(category) {
+            const cards = document.querySelectorAll('.location-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Function to show location details in modal
+        function showLocationDetails(locationName) {
+            const location = ecoLocations[locationName];
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="close-button" onclick="closeModal(this)">&times;</button>
+                    <h2 style="color: #f4d03f; margin-bottom: 1rem;">${locationName}</h2>
+                    
+                    <div class="image-gallery">
+                        ${location.images.map(img => `
+                            <img src="${img}" alt="${locationName}" class="gallery-image" 
+                                 onerror="this.src='https://via.placeholder.com/400x300/1a4d3a/f4d03f?text=${encodeURIComponent(locationName)}'"
+                                 onclick="showFullImage(this.src)" />
+                        `).join('')}
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h3 style="color: #f4d03f; margin-bottom: 0.5rem;">📍 Location</h3>
+                        <p>${location.location}</p>
+                        <p style="color: #aaa; font-size: 0.9rem;">${location.coordinates}</p>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <h3 style="color: #f4d03f; margin-bottom: 0.5rem;">Activities</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                            ${location.activities.map(activity => `
+                                <span style="background: rgba(244, 208, 63, 0.2); padding: 0.5rem 1rem; border-radius: 20px;">
+                                    ${activity}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div>
+                            <h3 style="color: #f4d03f; margin-bottom: 0.5rem;">Best Time to Visit</h3>
+                            <p>${location.bestTime}</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #f4d03f; margin-bottom: 0.5rem;">Entry Fee</h3>
+                            <p>${location.entryFee}</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #f4d03f; margin-bottom: 0.5rem;">Timings</h3>
+                            <p>${location.timings}</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <h3 style="color: #f4d03f; margin-bottom: 0.5rem;">How to Reach</h3>
+                        <p>${location.howToReach}</p>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <h3 style="color: #f4d03f; margin-bottom: 0.5rem;">Facilities</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            ${location.facilities.map(facility => `
+                                <li style="margin-bottom: 0.5rem;">✓ ${facility}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <h3 style="color: #f4d03f; margin-bottom: 0.5rem;">Nearby Attractions</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            ${location.nearbyAttractions.map(attraction => `
+                                <li style="margin-bottom: 0.5rem;">📍 ${attraction}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem;">
+                        <button onclick="getDirections('${locationName}')" class="view-details-btn">
+                            🗺️ Get Directions
+                        </button>
+                        <button onclick="bookTickets('${locationName}')" class="view-details-btn">
+                            🎟️ Book Tickets
+                        </button>
+                        <button onclick="shareLocation('${locationName}')" class="view-details-btn">
+                            📤 Share
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('visible'), 10);
+        }
+
+        // Function to show full-size image
+        function showFullImage(src) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content" style="padding: 0; background: none; overflow: hidden;">
+                    <button class="close-button" onclick="closeModal(this)" style="color: white; z-index: 2;">&times;</button>
+                    <img src="${src}" alt="Full size image" style="width: 100%; height: 100%; object-fit: contain;" />
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('visible'), 10);
+        }
+
+        // Function to close modal
+        function closeModal(button) {
+            const modal = button.closest('.modal');
+            modal.classList.remove('visible');
+            setTimeout(() => modal.remove(), 300);
+        }
+
+        // Function to get directions
+        function getDirections(locationName) {
+            const location = ecoLocations[locationName];
+            window.open(`https://www.google.com/maps/search/?api=1&query=${location.coordinates}`);
+        }
+
+        // Function to handle ticket booking
+        function bookTickets(locationName) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <button class="close-button" onclick="closeModal(this)">&times;</button>
+                    <h2 style="color: #f4d03f; margin-bottom: 1.5rem;">Book Tickets - ${locationName}</h2>
+                    <form onsubmit="handleBooking(event, '${locationName}')" style="color: white;">
+                        <div style="margin-bottom: 1rem;">
+                            <label>Visit Date:</label>
+                            <input type="date" required min="${new Date().toISOString().split('T')[0]}" 
+                                   style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label>Number of Visitors:</label>
+                            <input type="number" required min="1" max="10" 
+                                   style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <label>Ticket Type:</label>
+                            <select required style="width: 100%; padding: 0.5rem; margin-top: 0.5rem;">
+                                <option value="indian">Indian Citizen</option>
+                                <option value="foreign">Foreign National</option>
+                                <option value="student">Student</option>
+                                <option value="senior">Senior Citizen</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="view-details-btn" style="width: 100%;">Book Now</button>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            setTimeout(() => modal.classList.add('visible'), 10);
+        }
+
+        // Function to handle booking submission
+        function handleBooking(event, locationName) {
+            event.preventDefault();
+            const modal = event.target.closest('.modal');
+            const bookingId = Math.random().toString(36).substr(2, 9).toUpperCase();
+            modal.innerHTML = `
+                <div class="modal-content" style="text-align: center;">
+                    <h2 style="color: #f4d03f; margin-bottom: 1rem;">Booking Confirmed! 🎉</h2>
+                    <p style="margin: 1rem 0;">Your tickets for ${locationName} have been booked successfully.</p>
+                    <p style="margin: 1rem 0;">Booking Reference: #${bookingId}</p>
+                    <button onclick="closeModal(this)" class="view-details-btn">Close</button>
+                </div>
+            `;
+        }
+
+        // Function to share location
+        function shareLocation(locationName) {
+            const location = ecoLocations[locationName];
+            const shareText = `Check out ${locationName} in Jharkhand!\nLocation: ${location.coordinates}\nBest Time to Visit: ${location.bestTime}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: locationName,
+                    text: shareText,
+                    url: window.location.href
+                });
+            } else {
+                alert(`Share this location:\n${shareText}\n${window.location.href}`);
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            const locationGrid = document.getElementById('locationGrid');
+            locationGrid.innerHTML = Object.entries(ecoLocations)
+                .map(([name, data]) => createLocationCard(name, data))
+                .join('');
+
+            // Add category filter functionality
+            document.querySelectorAll('.category-btn').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    filterLocations(button.dataset.category);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
