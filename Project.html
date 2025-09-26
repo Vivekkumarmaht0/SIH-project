@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jharkhand Darshan - Experience Jharkhand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #059669 50%, #dc2626 100%);
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background: linear-gradient(135deg, #1e3a8a 0%, #059669 50%, #dc2626 100%); }
+            25% { background: linear-gradient(135deg, #059669 0%, #dc2626 50%, #1e3a8a 100%); }
+            50% { background: linear-gradient(135deg, #dc2626 0%, #1e3a8a 50%, #059669 100%); }
+            75% { background: linear-gradient(135deg, #1e3a8a 0%, #dc2626 50%, #059669 100%); }
+        }
+        
+        .floating-card {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(34, 197, 94, 0.6); }
+        }
+        
+        .ar-preview {
+            background: linear-gradient(45deg, #10b981, #3b82f6);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .ar-preview:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .blockchain-badge {
+            background: linear-gradient(45deg, #f59e0b, #ef4444);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .chat-bubble {
+            background: #f3f4f6;
+            border-radius: 20px 20px 20px 5px;
+            padding: 12px 16px;
+            margin: 8px 0;
+            max-width: 80%;
+        }
+        
+        .user-bubble {
+            background: #10b981;
+            color: white;
+            border-radius: 20px 20px 5px 20px;
+            margin-left: auto;
+        }
+        
+        /* Add these styles to your existing <style> section */
+        .marketplace-image {
+            transition: transform 0.3s ease;
+        }
+
+        .marketplace-image:hover {
+            transform: scale(1.05);
+        }
+
+        .modal-image {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid #10b981;
+        }
+        
+        .safety-button {
+            background: linear-gradient(45deg, #dc2626, #ef4444);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: emergencyPulse 2s infinite;
+        }
+        
+        @keyframes emergencyPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .vr-viewer {
+            background: #1f2937;
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .vr-viewer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: scan 3s infinite;
+        }
+        
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                        <i data-lucide="mountain" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold text-gray-800">Jharkhand Darshan</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <button onclick="showSection('home')" class="nav-btn text-gray-700 hover:text-green-600 font-medium">Home</button>
+                    <button onclick="showSection('planner')" class="nav-btn text-gray-700 hover:text-green-600 font-medium">Trip Planner</button>
+                    <button onclick="showSection('marketplace')" class="nav-btn text-gray-700 hover:text-green-600 font-medium">Marketplace</button>
+                    <button onclick="showSection('culture')" class="nav-btn text-gray-700 hover:text-green-600 font-medium">Culture</button>
+                    <button onclick="showSection('safety')" class="nav-btn text-gray-700 hover:text-green-600 font-medium">Safety</button>
+                    <button onclick="showSection('vr')" class="nav-btn text-gray-700 hover:text-green-600 font-medium">VR Tours</button>
+                    <button onclick="showSection('dashboard')" class="nav-btn text-gray-700 hover:text-green-600 font-medium">Dashboard</button>
+                </div>
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <button onclick="showSection('home')" class="block w-full text-left py-2 text-gray-700">Home</button>
+                <button onclick="showSection('planner')" class="block w-full text-left py-2 text-gray-700">Trip Planner</button>
+                <button onclick="showSection('marketplace')" class="block w-full text-left py-2 text-gray-700">Marketplace</button>
+                <button onclick="showSection('culture')" class="block w-full text-left py-2 text-gray-700">Culture</button>
+                <button onclick="showSection('safety')" class="block w-full text-left py-2 text-gray-700">Safety</button>
+                <button onclick="showSection('vr')" class="block w-full text-left py-2 text-gray-700">VR Tours</button>
+                <button onclick="showSection('dashboard')" class="block w-full text-left py-2 text-gray-700">Dashboard</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="section-content">
+        <!-- Hero Section -->
+        <div class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-pulse">Experience Jharkhand</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">Authentic • Safe • Unforgettable</p>
+                
+                <!-- AR/VR Previews -->
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                    <div class="ar-preview floating-card">
+                        <i data-lucide="mountain-snow" class="w-8 h-8 mx-auto mb-2"></i>
+                        <p class="text-sm">Netarhat</p>
+                    </div>
+                    <div class="ar-preview floating-card" style="animation-delay: 1s;">
+                        <i data-lucide="trees" class="w-8 h-8 mx-auto mb-2"></i>
+                        <p class="text-sm">Patratu Valley</p>
+                    </div>
+                    <div class="ar-preview floating-card" style="animation-delay: 2s;">
+                        <i data-lucide="waves" class="w-8 h-8 mx-auto mb-2"></i>
+                        <p class="text-sm">Hundru Falls</p>
+                    </div>
+                    <div class="ar-preview floating-card" style="animation-delay: 3s;">
+                        <i data-lucide="leaf" class="w-8 h-8 mx-auto mb-2"></i>
+                        <p class="text-sm">Betla National Park</p>
+                    </div>
+                    <div class="ar-preview floating-card" style="animation-delay: 4s;">
+                        <i data-lucide="church" class="w-8 h-8 mx-auto mb-2"></i>
+                        <p class="text-sm">Deoghar</p>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button onclick="showSection('planner')" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-full font-semibold transition-all pulse-glow">
+                        Plan Your Trip
+                    </button>
+                    <button onclick="showSection('culture')" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition-all">
+                        Explore Culture
+                    </button>
+                    <button onclick="showSection('marketplace')" class="bg-yellow-600 hover:bg-yellow-700 px-6 py-3 rounded-full font-semibold transition-all">
+                        Visit Marketplace
+                    </button>
+                    <button onclick="showSection('safety')" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-full font-semibold transition-all">
+                        Safety Help
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Trip Planner Section -->
+    <section id="planner" class="section-content hidden">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">AI-Powered Trip Planner</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Input Form -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Plan Your Perfect Trip</h3>
+                    <form id="tripForm" onsubmit="generateItinerary(event)">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Duration (days)</label>
+                                <select id="duration" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                                    <option value="2">2 Days</option>
+                                    <option value="3">3 Days</option>
+                                    <option value="5">5 Days</option>
+                                    <option value="7">7 Days</option>
+                                    <option value="10">10+ Days</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                                <select id="budget" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                                    <option value="budget">Budget (₹5,000-15,000)</option>
+                                    <option value="mid">Mid-range (₹15,000-30,000)</option>
+                                    <option value="luxury">Luxury (₹30,000+)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Interests</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" value="nature" class="mr-2"> Nature
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" value="adventure" class="mr-2"> Adventure
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" value="culture" class="mr-2"> Culture
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" value="pilgrimage" class="mr-2"> Pilgrimage
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition-all">
+                                Generate AI Itinerary
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Generated Itinerary -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Your Personalized Itinerary</h3>
+                    <div id="itineraryResult" class="text-gray-600">
+                        <div class="text-center py-8">
+                            <i data-lucide="map" class="w-16 h-16 mx-auto text-gray-400 mb-4"></i>
+                            <p>Fill out the form to generate your personalized itinerary</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ML Analytics -->
+            <div class="mt-12 bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">Travel Analytics & Predictions</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="trending-up" class="w-10 h-10 text-green-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Tourist Flow Prediction</h4>
+                        <p class="text-sm text-gray-600 mt-2">Best time to visit: <span class="font-semibold text-green-600">October - March</span></p>
+                        <div class="mt-2 bg-green-200 rounded-full h-2">
+                            <div class="bg-green-600 h-2 rounded-full" style="width: 75%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">75% optimal conditions</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="shield-check" class="w-10 h-10 text-blue-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Safety Score</h4>
+                        <p class="text-sm text-gray-600 mt-2">Current safety rating: <span class="font-semibold text-blue-600">9.2/10</span></p>
+                        <div class="mt-2 bg-blue-200 rounded-full h-2">
+                            <div class="bg-blue-600 h-2 rounded-full" style="width: 92%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Excellent safety conditions</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="sun" class="w-10 h-10 text-yellow-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800">Weather Forecast</h4>
+                        <p class="text-sm text-gray-600 mt-2">Next 7 days: <span class="font-semibold text-yellow-600">Pleasant</span></p>
+                        <div class="mt-2 bg-yellow-200 rounded-full h-2">
+                            <div class="bg-yellow-600 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">85% favorable weather</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Replace the existing Marketplace section with this updated version -->
+<section id="marketplace" class="section-content hidden">
+    <div class="max-w-7xl mx-auto px-4 py-12">
+        <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Community Marketplace</h2>
+        
+        <!-- Search and Filter -->
+        <div class="mb-8">
+            <div class="flex gap-4 flex-wrap">
+                <input type="text" id="marketplace-search" 
+                    placeholder="Search items..." 
+                    class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                <select id="marketplace-category" 
+                    class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                    <option value="all">All Categories</option>
+                    <option value="handicrafts">Handicrafts</option>
+                    <option value="homestays">Homestays</option>
+                    <option value="guides">Local Guides</option>
+                    <option value="events">Cultural Events</option>
+                </select>
+                <button onclick="filterMarketplace()" 
+                    class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg">
+                    Filter
+                </button>
+            </div>
+        </div>
+        
+        <div id="marketplace-items" class="grid md:grid-cols-4 gap-6">
+            <!-- Items will be dynamically populated -->
+        </div>
+        
+        <!-- Item Details Modal -->
+        <div id="item-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+            <div class="bg-white rounded-xl max-w-2xl w-full mx-4 p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 id="modal-title" class="text-xl font-semibold"></h3>
+                    <button onclick="closeItemModal()" class="text-gray-500 hover:text-gray-700">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Marketplace Section -->
+    <section id="marketplace" class="section-content hidden">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Community Marketplace</h2>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- Handicrafts -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+                        <i data-lucide="palette" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold">Tribal Handicrafts</h3>
+                            <span class="blockchain-badge">Verified</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Authentic handmade crafts by local artisans</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-semibold">₹500 - ₹5,000</span>
+                            <button onclick="openMarketplaceItem('handicrafts')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Explore
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Homestays -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <i data-lucide="home" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold">Eco Homestays</h3>
+                            <span class="blockchain-badge">Verified</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Stay with local families, experience authentic culture</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-semibold">₹800 - ₹2,500/night</span>
+                            <button onclick="openMarketplaceItem('homestays')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Local Guides -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
+                        <i data-lucide="user-check" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold">Certified Guides</h3>
+                            <span class="blockchain-badge">Verified</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Expert local guides with blockchain certification</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-semibold">₹1,000 - ₹3,000/day</span>
+                            <button onclick="openMarketplaceItem('guides')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Hire Guide
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cultural Events -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                        <i data-lucide="calendar-days" class="w-16 h-16 text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold">Cultural Events</h3>
+                            <span class="blockchain-badge">Verified</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">Traditional festivals and cultural programs</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-semibold">₹200 - ₹1,500</span>
+                            <button onclick="openMarketplaceItem('events')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Join Event
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Gateway Demo -->
+            <div class="mt-12 bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">Secure Payment Gateway</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-4">Payment Methods</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 border rounded-lg">
+                                <i data-lucide="credit-card" class="w-6 h-6 text-blue-600 mr-3"></i>
+                                <span>Credit/Debit Cards</span>
+                            </div>
+                            <div class="flex items-center p-3 border rounded-lg">
+                                <i data-lucide="smartphone" class="w-6 h-6 text-green-600 mr-3"></i>
+                                <span>UPI & Digital Wallets</span>
+                            </div>
+                            <div class="flex items-center p-3 border rounded-lg">
+                                <i data-lucide="banknote" class="w-6 h-6 text-yellow-600 mr-3"></i>
+                                <span>Net Banking</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-4">Security Features</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-green-600 mr-2"></i>
+                                <span class="text-sm">256-bit SSL Encryption</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="lock" class="w-5 h-5 text-green-600 mr-2"></i>
+                                <span class="text-sm">PCI DSS Compliant</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-600 mr-2"></i>
+                                <span class="text-sm">Blockchain Verified Transactions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="section-content hidden">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Cultural & Festival Hub</h2>
+            
+            <!-- Festival Calendar -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">Festival Calendar</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
+                        <h4 class="font-semibold text-orange-800">Sarhul Festival</h4>
+                        <p class="text-sm text-orange-600">March - April</p>
+                        <p class="text-xs text-gray-600 mt-2">Tribal spring festival celebrating nature</p>
+                    </div>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                        <h4 class="font-semibold text-blue-800">Karma Festival</h4>
+                        <p class="text-sm text-blue-600">August - September</p>
+                        <p class="text-xs text-gray-600 mt-2">Harvest festival with traditional dances</p>
+                    </div>
+                    <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded">
+                        <h4 class="font-semibold text-purple-800">Tusu Festival</h4>
+                        <p class="text-sm text-purple-600">December - January</p>
+                        <p class="text-xs text-gray-600 mt-2">Winter festival with folk songs</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Cultural Chatbot -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">AI Cultural Guide</h3>
+                    <div id="chatMessages" class="h-64 overflow-y-auto mb-4 p-4 bg-gray-50 rounded-lg">
+                        <div class="chat-bubble">
+                            <p class="text-sm">🙏 Namaste! I'm your AI cultural guide. Ask me about Jharkhand's rich heritage, folklore, and traditions!</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-2">
+                        <input type="text" id="chatInput" placeholder="Ask about culture, history, or folklore..." 
+                               class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                               onkeypress="handleChatKeyPress(event)">
+                        <button onclick="sendChatMessage()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <button onclick="askPredefinedQuestion('Tell me about Sarna religion')" class="text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-full">
+                            Sarna Religion
+                        </button>
+                        <button onclick="askPredefinedQuestion('What are traditional Jharkhand dances?')" class="text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-full">
+                            Traditional Dances
+                        </button>
+                        <button onclick="askPredefinedQuestion('Tell me folklore of Jharkhand')" class="text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-full">
+                            Folklore
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Multi-Language Support</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Select Language</label>
+                            <select id="languageSelect" onchange="changeLanguage()" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                                <option value="en">English</option>
+                                <option value="hi">हिंदी (Hindi)</option>
+                                <option value="ho">𑣙𑣉𑣉 (Ho)</option>
+                                <option value="sa">संताली (Santali)</option>
+                                <option value="ku">कुड़ुख (Kurukh)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Voice Navigation</h4>
+                            <button onclick="startVoiceNavigation()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center space-x-2">
+                                <i data-lucide="mic" class="w-5 h-5"></i>
+                                <span>Start Voice Guide</span>
+                            </button>
+                            <p class="text-xs text-gray-600 mt-2">Speak in your preferred language for navigation</p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Cultural Phrases</h4>
+                            <div class="space-y-2 text-sm">
+                                <div><strong>Welcome:</strong> <span id="welcomePhrase">Welcome to Jharkhand</span></div>
+                                <div><strong>Thank you:</strong> <span id="thankPhrase">Thank you</span></div>
+                                <div><strong>Goodbye:</strong> <span id="goodbyePhrase">Goodbye</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Section -->
+    <section id="safety" class="section-content hidden">
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Travel Safety Suite</h2>
+            
+            <!-- Emergency SOS -->
+            <div class="bg-red-50 border-2 border-red-200 rounded-xl p-8 mb-8 text-center">
+                <h3 class="text-2xl font-bold text-red-800 mb-4">Emergency SOS</h3>
+                <button onclick="triggerSOS()" class="safety-button text-xl">
+                    🚨 EMERGENCY SOS
+                </button>
+                <p class="text-sm text-red-600 mt-4">One-tap access to police, medical, and tourist helpline</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Emergency Contacts -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Emergency Contacts</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-red-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="phone" class="w-6 h-6 text-red-600"></i>
+                                <div>
+                                    <p class="font-semibold">Police Emergency</p>
+                                    <p class="text-sm text-gray-600">24/7 Emergency Response</p>
+                                </div>
+                            </div>
+                            <button onclick="callEmergency('100')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg">
+                                Call 100
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="heart-pulse" class="w-6 h-6 text-blue-600"></i>
+                                <div>
+                                    <p class="font-semibold">Medical Emergency</p>
+                                    <p class="text-sm text-gray-600">Ambulance & Medical Aid</p>
+                                </div>
+                            </div>
+                            <button onclick="callEmergency('108')" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
+                                Call 108
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="map-pin" class="w-6 h-6 text-green-600"></i>
+                                <div>
+                                    <p class="font-semibold">Tourist Helpline</p>
+                                    <p class="text-sm text-gray-600">Tourism Support & Guidance</p>
+                                </div>
+                            </div>
+                            <button onclick="callEmergency('1363')" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg">
+                                Call 1363
+                            </button>
+                        </div>
+                        
+                        <div class="flex items-center justify-between p-4 bg-purple-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <i data-lucide="shield-alert" class="w-6 h-6 text-purple-600"></i>
+                                <div>
+                                    <p class="font-semibold">Women Helpline</p>
+                                    <p class="text-sm text-gray-600">24/7 Women Safety Support</p>
+                                </div>
+                            </div>
+                            <button onclick="callEmergency('1091')" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">
+                                Call 1091
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Safety Features -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Safety Features</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 border rounded-lg">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <i data-lucide="map" class="w-6 h-6 text-green-600"></i>
+                                <h4 class="font-semibold">Live Location Sharing</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Share your real-time location with trusted contacts</p>
+                            <button onclick="shareLocation()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Share Location
+                            </button>
+                        </div>
+                        
+                        <div class="p-4 border rounded-lg">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <i data-lucide="wifi-off" class="w-6 h-6 text-blue-600"></i>
+                                <h4 class="font-semibold">Offline Emergency Directory</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Access emergency contacts without internet</p>
+                            <button onclick="downloadOfflineDirectory()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Download Directory
+                            </button>
+                        </div>
+                        
+                        <div class="p-4 border rounded-lg">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-purple-600"></i>
+                                <h4 class="font-semibold">Verified Services</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Only blockchain-verified transport & accommodation</p>
+                            <button onclick="showVerifiedServices()" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm">
+                                View Services
+                            </button>
+                        </div>
+                        
+                        <div class="p-4 border rounded-lg">
+                            <div class="flex items-center space-x-3 mb-2">
+                                <i data-lucide="bell" class="w-6 h-6 text-yellow-600"></i>
+                                <h4 class="font-semibold">Safety Alerts</h4>
+                            </div>
+                            <p class="text-sm text-gray-600 mb-3">Real-time safety updates and weather alerts</p>
+                            <button onclick="enableAlerts()" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg text-sm">
+                                Enable Alerts
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VR Tours Section -->
+    <section id="vr" class="section-content hidden">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">AR/VR Virtual Tours</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- VR Viewer -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Immersive 3D Experience</h3>
+                    <div class="vr-viewer">
+                        <div class="text-center">
+                            <i data-lucide="eye" class="w-16 h-16 text-white mb-4"></i>
+                            <h4 class="text-xl font-semibold mb-2">Virtual Reality Tour</h4>
+                            <p class="text-gray-300 mb-4">Experience Jharkhand's beauty in 360°</p>
+                            <button onclick="startVRTour()" class="bg-white text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                                Start VR Tour
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- VR Controls -->
+                    <div class="mt-6 flex justify-center space-x-4">
+                        <button onclick="vrControl('play')" class="bg-green-600 hover:bg-green-700 text-white p-3 rounded-full">
+                            <i data-lucide="play" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="vrControl('pause')" class="bg-yellow-600 hover:bg-yellow-700 text-white p-3 rounded-full">
+                            <i data-lucide="pause" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="vrControl('fullscreen')" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full">
+                            <i data-lucide="maximize" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tour Selection -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Choose Your Destination</h3>
+                    <div class="space-y-4">
+                        <div onclick="selectVRDestination('netarhat')" class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-green-500 hover:bg-green-50 transition-all">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="mountain-snow" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Netarhat Hill Station</h4>
+                                    <p class="text-sm text-gray-600">Queen of Chotanagpur - Sunrise & Sunset Views</p>
+                                    <div class="flex items-center mt-1">
+                                        <i data-lucide="clock" class="w-4 h-4 text-gray-400 mr-1"></i>
+                                        <span class="text-xs text-gray-500">8 min tour</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div onclick="selectVRDestination('hundru')" class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-green-500 hover:bg-green-50 transition-all">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="waves" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Hundru Falls</h4>
+                                    <p class="text-sm text-gray-600">Spectacular 320ft waterfall experience</p>
+                                    <div class="flex items-center mt-1">
+                                        <i data-lucide="clock" class="w-4 h-4 text-gray-400 mr-1"></i>
+                                        <span class="text-xs text-gray-500">6 min tour</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div onclick="selectVRDestination('betla')" class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-green-500 hover:bg-green-50 transition-all">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Betla National Park</h4>
+                                    <p class="text-sm text-gray-600">Wildlife safari and forest exploration</p>
+                                    <div class="flex items-center mt-1">
+                                        <i data-lucide="clock" class="w-4 h-4 text-gray-400 mr-1"></i>
+                                        <span class="text-xs text-gray-500">12 min tour</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div onclick="selectVRDestination('deoghar')" class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-green-500 hover:bg-green-50 transition-all">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="church" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Deoghar Temple</h4>
+                                    <p class="text-sm text-gray-600">Sacred Baidyanath Jyotirlinga temple</p>
+                                    <div class="flex items-center mt-1">
+                                        <i data-lucide="clock" class="w-4 h-4 text-gray-400 mr-1"></i>
+                                        <span class="text-xs text-gray-500">10 min tour</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div onclick="selectVRDestination('tribal')" class="p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-green-500 hover:bg-green-50 transition-all">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Tribal Villages</h4>
+                                    <p class="text-sm text-gray-600">Authentic tribal culture and lifestyle</p>
+                                    <div class="flex items-center mt-1">
+                                        <i data-lucide="clock" class="w-4 h-4 text-gray-400 mr-1"></i>
+                                        <span class="text-xs text-gray-500">15 min tour</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AR Features -->
+            <div class="mt-12 bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-semibold mb-6 text-gray-800">Augmented Reality Features</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="camera" class="w-10 h-10 text-blue-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">AR Photo Filters</h4>
+                        <p class="text-sm text-gray-600">Add traditional Jharkhand elements to your photos</p>
+                        <button onclick="enableARFilters()" class="mt-3 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm">
+                            Try AR Filters
+                        </button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="navigation" class="w-10 h-10 text-green-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">AR Navigation</h4>
+                        <p class="text-sm text-gray-600">Point your camera for real-time directions</p>
+                        <button onclick="enableARNavigation()" class="mt-3 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
+                            Start AR Nav
+                        </button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="info" class="w-10 h-10 text-purple-600"></i>
+                        </div>
+                        <h4 class="font-semibold text-gray-800 mb-2">AR Information</h4>
+                        <p class="text-sm text-gray-600">Point at landmarks for instant information</p>
+                        <button onclick="enableARInfo()" class="mt-3 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm">
+                            Enable AR Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section-content hidden">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Analytics Dashboard</h2>
+            
+            <!-- Key Metrics -->
+            <div class="grid md:grid-cols-4 gap-6 mb-8">
+                <div class="dashboard-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Monthly Visitors</p>
+                            <p class="text-2xl font-bold text-green-600">45,230</p>
+                            <p class="text-xs text-green-500">↑ 12% from last month</p>
+                        </div>
+                        <i data-lucide="users" class="w-10 h-10 text-green-600"></i>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Revenue Impact</p>
+                            <p class="text-2xl font-bold text-blue-600">₹2.8 Cr</p>
+                            <p class="text-xs text-blue-500">↑ 18% from last month</p>
+                        </div>
+                        <i data-lucide="trending-up" class="w-10 h-10 text-blue-600"></i>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Community Growth</p>
+                            <p class="text-2xl font-bold text-purple-600">1,250</p>
+                            <p class="text-xs text-purple-500">↑ 25% new vendors</p>
+                        </div>
+                        <i data-lucide="store" class="w-10 h-10 text-purple-600"></i>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-gray-600">Safety Score</p>
+                            <p class="text-2xl font-bold text-red-600">9.2/10</p>
+                            <p class="text-xs text-red-500">Excellent rating</p>
+                        </div>
+                        <i data-lucide="shield-check" class="w-10 h-10 text-red-600"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts and Analytics -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Tourist Flow Chart -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Tourist Flow Prediction</h3>
+                    <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <i data-lucide="bar-chart-3" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+                            <p class="text-gray-600">ML-powered tourist flow analytics</p>
+                            <div class="mt-4 space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Peak Season (Oct-Mar)</span>
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-green-600 h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Moderate (Apr-Jun)</span>
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-yellow-600 h-2 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm">Low Season (Jul-Sep)</span>
+                                    <div class="w-32 bg-gray-200 rounded-full h-2">
+                                        <div class="bg-red-600 h-2 rounded-full" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Revenue Analytics -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800">Revenue Distribution</h3>
+                    <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                        <div class="text-center">
+                            <i data-lucide="pie-chart" class="w-16 h-16 text-gray-400 mx-auto mb-4"></i>
+                            <p class="text-gray-600">Revenue breakdown by sector</p>
+                            <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-green-500 rounded mr-2"></div>
+                                    <span>Accommodation 40%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-blue-500 rounded mr-2"></div>
+                                    <span>Transport 25%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-yellow-500 rounded mr-2"></div>
+                                    <span>Food & Dining 20%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-4 h-4 bg-purple-500 rounded mr-2"></div>
+                                    <span>Activities 15%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Detailed Analytics -->
+            <div class="mt-8 bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-semibold mb-6 text-gray-800">Detailed Analytics</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-3">Top Destinations</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Netarhat</span>
+                                <span class="text-sm font-semibold">28%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Deoghar</span>
+                                <span class="text-sm font-semibold">22%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Betla National Park</span>
+                                <span class="text-sm font-semibold">18%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Hundru Falls</span>
+                                <span class="text-sm font-semibold">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-3">Visitor Demographics</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Domestic</span>
+                                <span class="text-sm font-semibold">78%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">International</span>
+                                <span class="text-sm font-semibold">22%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Age 25-35</span>
+                                <span class="text-sm font-semibold">35%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Families</span>
+                                <span class="text-sm font-semibold">45%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-3">Blockchain Verifications</h4>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Verified Guides</span>
+                                <span class="text-sm font-semibold">450</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Certified Homestays</span>
+                                <span class="text-sm font-semibold">280</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Verified Vendors</span>
+                                <span class="text-sm font-semibold">520</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">Trust Score</span>
+                                <span class="text-sm font-semibold">9.4/10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                            <i data-lucide="mountain" class="w-5 h-5 text-white"></i>
+                        </div>
+                        <span class="text-lg font-bold">Jharkhand Darshan</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Experience the authentic beauty and culture of Jharkhand with AI-powered travel planning and blockchain-verified services.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <div class="space-y-2 text-sm">
+                        <button onclick="showSection('planner')" class="block text-gray-400 hover:text-white">Trip Planner</button>
+                        <button onclick="showSection('marketplace')" class="block text-gray-400 hover:text-white">Marketplace</button>
+                        <button onclick="showSection('culture')" class="block text-gray-400 hover:text-white">Culture Hub</button>
+                        <button onclick="showSection('safety')" class="block text-gray-400 hover:text-white">Safety Suite</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-gray-400">Tourist Helpline: 1363</p>
+                        <p class="text-gray-400">Emergency: 100</p>
+                        <p class="text-gray-400">Medical: 108</p>
+                        <p class="text-gray-400">Women Safety: 1091</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Technology</h4>
+                    <div class="space-y-2 text-sm">
+                        <p class="text-gray-400">AI-Powered Planning</p>
+                        <p class="text-gray-400">Blockchain Verification</p>
+                        <p class="text-gray-400">AR/VR Experiences</p>
+                        <p class="text-gray-400">ML Analytics</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 Jharkhand Darshan. Powered by AI, secured by blockchain, designed for authentic experiences.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Global variables
+        let currentSection = 'home';
+        let currentLanguage = 'en';
+        
+        // Language translations
+        const translations = {
+            en: {
+                welcome: "Welcome to Jharkhand",
+                thank: "Thank you",
+                goodbye: "Goodbye"
+            },
+            hi: {
+                welcome: "झारखंड में आपका स्वागत है",
+                thank: "धन्यवाद",
+                goodbye: "अलविदा"
+            },
+            ho: {
+                welcome: "𑣙𑣉𑣉 𑣗𑣉𑣙 𑣇𑣉𑣙",
+                thank: "𑣙𑣉𑣉 𑣗𑣉",
+                goodbye: "𑣙𑣉𑣉 𑣗𑣉"
+            }
+        };
+        
+        // Navigation functions
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            currentSection = sectionId;
+            
+            // Update navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-green-600');
+                btn.classList.add('text-gray-700');
+            });
+            
+            // Close mobile menu
+            document.getElementById('mobileMenu').classList.add('hidden');
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Trip Planner functions
+        function generateItinerary(event) {
+            event.preventDefault();
+            
+            const duration = document.getElementById('duration').value;
+            const budget = document.getElementById('budget').value;
+            const interests = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
+            
+            const itineraryResult = document.getElementById('itineraryResult');
+            
+            // Simulate AI generation
+            itineraryResult.innerHTML = `
+                <div class="animate-pulse">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-green-600 mr-2"></i>
+                        <span class="font-semibold text-green-600">AI is crafting your perfect itinerary...</span>
+                    </div>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                const itinerary = generateAIItinerary(duration, budget, interests);
+                itineraryResult.innerHTML = itinerary;
+                lucide.createIcons();
+            }, 2000);
+        }
+        
+        function generateAIItinerary(duration, budget, interests) {
+            const destinations = {
+                nature: ['Netarhat Hill Station', 'Hundru Falls', 'Patratu Valley'],
+                adventure: ['Betla National Park', 'Rock Climbing at Parasnath', 'River Rafting'],
+                culture: ['Tribal Villages', 'Sarna Sacred Groves', 'Local Handicraft Centers'],
+                pilgrimage: ['Deoghar Temple', 'Parasnath Hill', 'Rajrappa Temple']
+            };
+            
+            let selectedDestinations = [];
+            interests.forEach(interest => {
+                if (destinations[interest]) {
+                    selectedDestinations = [...selectedDestinations, ...destinations[interest]];
+                }
+            });
+            
+            if (selectedDestinations.length === 0) {
+                selectedDestinations = ['Netarhat Hill Station', 'Deoghar Temple', 'Betla National Park'];
+            }
+            
+            const budgetInfo = {
+                budget: '₹5,000-15,000 per person',
+                mid: '₹15,000-30,000 per person',
+                luxury: '₹30,000+ per person'
+            };
+            
+            return `
+                <div class="space-y-4">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-green-600 mr-2"></i>
+                        <span class="font-semibold text-green-600">Your AI-Generated Itinerary</span>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">${duration} Days Jharkhand Experience</h4>
+                        <p class="text-sm text-gray-600">Budget: ${budgetInfo[budget]}</p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        ${selectedDestinations.slice(0, parseInt(duration)).map((dest, index) => `
+                            <div class="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                                <div class="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                                    ${index + 1}
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">${dest}</h5>
+                                    <p class="text-sm text-gray-600">Day ${index + 1} - Full day exploration with local guide</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                        <h5 class="font-semibold mb-2">Included Services</h5>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div class="flex items-center">
+                                <i data-lucide="check" class="w-4 h-4 text-green-600 mr-1"></i>
+                                <span>Verified Accommodation</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="check" class="w-4 h-4 text-green-600 mr-1"></i>
+                                <span>Local Transport</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="check" class="w-4 h-4 text-green-600 mr-1"></i>
+                                <span>Certified Guides</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="check" class="w-4 h-4 text-green-600 mr-1"></i>
+                                <span>24/7 Safety Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="bookItinerary()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold">
+                        Book This Itinerary
+                    </button>
+                </div>
+            `;
+        }
+        
+        function bookItinerary() {
+            alert('🎉 Booking functionality would integrate with payment gateway and booking system. This is a demo version.');
+        }
+        
+        // Marketplace functions
+        function openMarketplaceItem(category) {
+            const items = {
+                handicrafts: 'Tribal Handicrafts - Authentic handmade crafts by local artisans',
+                homestays: 'Eco Homestays - Stay with local families and experience authentic culture',
+                guides: 'Certified Guides - Expert local guides with blockchain certification',
+                events: 'Cultural Events - Traditional festivals and cultural programs'
+            };
+            
+            alert(`🛍️ ${items[category]}\n\nThis would open a detailed marketplace page with booking options. Demo version shows this alert.`);
+        }
+
+        // Add this to the existing <script> section
+// Update the marketplaceItems object with image URLs
+const marketplaceItems = {
+    handicrafts: [
+        {
+            id: 'h1',
+            name: 'Traditional Wood Carvings',
+            price: '₹1,500 - ₹5,000',
+            image: 'https://example.com/images/wood-carving.jpg', // Replace with actual image URL
+            thumbnailImage: 'https://images.unsplash.com/photo-1606722590583-6951b5ea9b8f',
+            description: 'Hand-carved wooden artifacts by local artisans',
+            seller: 'Tribal Arts Collective',
+            rating: 4.8,
+            verified: true
+        },
+        {
+            id: 'h2',
+            name: 'Tribal Jewelry Set',
+            price: '₹800 - ₹2,500',
+            image: 'https://example.com/images/tribal-jewelry.jpg',
+            thumbnailImage: 'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1',
+            description: 'Authentic tribal jewelry handcrafted with traditional designs',
+            seller: 'Women Artisan Group',
+            rating: 4.9,
+            verified: true
+        }
+    ],
+    homestays: [
+        {
+            id: 's1',
+            name: 'Tribal Village Homestay',
+            price: '₹1,200/night',
+            image: 'https://example.com/images/homestay.jpg',
+            thumbnailImage: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32',
+            description: 'Experience authentic tribal life with a local family',
+            host: 'Prakash Kumar',
+            rating: 4.7,
+            verified: true
+        }
+    ],
+    guides: [
+        {
+            id: 'g1',
+            name: 'Local Expert Guide',
+            price: '₹2,000/day',
+            image: 'https://example.com/images/guide.jpg',
+            thumbnailImage: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd',
+            description: 'Experienced guide with deep knowledge of local culture and history',
+            guide: 'Rajesh Singh',
+            rating: 4.9,
+            verified: true
+        }
+    ],
+    events: [
+        {
+            id: 'e1',
+            name: 'Traditional Dance Workshop',
+            price: '₹500/person',
+            image: 'https://example.com/images/dance.jpg',
+            thumbnailImage: 'https://images.unsplash.com/photo-1504609773096-104ff2c73ba4',
+            description: 'Learn traditional Jharkhand dance forms from expert performers',
+            organizer: 'Cultural Arts Center',
+            rating: 4.8,
+            verified: true
+        }
+    ]
+};
+
+// Marketplace Functions
+function filterMarketplace() {
+    const searchTerm = document.getElementById('marketplace-search').value.toLowerCase();
+    const category = document.getElementById('marketplace-category').value;
+    displayMarketplaceItems(searchTerm, category);
+}
+
+function displayMarketplaceItems(searchTerm = '', category = 'all') {
+    const container = document.getElementById('marketplace-items');
+    container.innerHTML = '';
+
+    let items = [];
+    if (category === 'all') {
+        Object.values(marketplaceItems).forEach(categoryItems => {
+            items = [...items, ...categoryItems];
+        });
+    } else {
+        items = marketplaceItems[category] || [];
+    }
+
+    // Filter by search term
+    items = items.filter(item => 
+        item.name.toLowerCase().includes(searchTerm) || 
+        item.description.toLowerCase().includes(searchTerm)
+    );
+
+    items.forEach(item => {
+        container.innerHTML += `
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="h-48 bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+                    <i data-lucide="${getCategoryIcon(item.id)}" class="w-16 h-16 text-white"></i>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-lg font-semibold">${item.name}</h3>
+                        ${item.verified ? '<span class="blockchain-badge">Verified</span>' : ''}
+                    </div>
+                    <p class="text-gray-600 text-sm mb-4">${item.description}</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-green-600 font-semibold">${item.price}</span>
+                        <button onclick="openItemDetails('${item.id}')" 
+                            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    lucide.createIcons();
+}
+
+function getCategoryIcon(itemId) {
+    const category = itemId.charAt(0);
+    const icons = {
+        h: 'palette',
+        s: 'home',
+        g: 'user-check',
+        e: 'calendar-days'
+    };
+    return icons[category] || 'shopping-bag';
+}
+
+function openItemDetails(itemId) {
+    const modal = document.getElementById('item-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+
+    let item;
+    for (const category in marketplaceItems) {
+        item = marketplaceItems[category].find(i => i.id === itemId);
+        if (item) break;
+    }
+
+    if (item) {
+        modalTitle.textContent = item.name;
+        modalContent.innerHTML = `
+            <div class="space-y-4">
+                <div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden">
+                    <img src="${item.thumbnailImage}" 
+                         alt="${item.name}"
+                         class="w-full h-full object-cover">
+                </div>
+                <p class="text-gray-600">${item.description}</p>
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="star" class="w-5 h-5 text-yellow-500"></i>
+                    <span class="font-semibold">${item.rating}</span>
+                </div>
+                <div class="border-t pt-4">
+                    <p class="font-semibold">Price: ${item.price}</p>
+                    ${item.seller ? `<p>Seller: ${item.seller}</p>` : ''}
+                    ${item.host ? `<p>Host: ${item.host}</p>` : ''}
+                    ${item.guide ? `<p>Guide: ${item.guide}</p>` : ''}
+                    ${item.organizer ? `<p>Organizer: ${item.organizer}</p>` : ''}
+                </div>
+                <button onclick="initiateBooking('${itemId}')" 
+                    class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold">
+                    Book Now
+                </button>
+            </div>
+        `;
+        lucide.createIcons();
+        modal.classList.remove('hidden');
+    }
+}
+
+function closeItemModal() {
+    document.getElementById('item-modal').classList.add('hidden');
+}
+
+function initiateBooking(itemId) {
+    // Implement booking logic here
+    alert(`Initiating booking for item ${itemId}. In a real implementation, this would connect to a payment gateway and booking system.`);
+}
+
+// Add this to the DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+    // ... existing code ...
+    
+    // Initialize marketplace
+    displayMarketplaceItems();
+});
+        
+        // Culture & Chat functions
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addChatMessage(message, true);
+                input.value = '';
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    const response = generateCulturalResponse(message);
+                    addChatMessage(response, false);
+                }, 1000);
+            }
+        }
+        
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+        
+        function askPredefinedQuestion(question) {
+            document.getElementById('chatInput').value = question;
+            sendChatMessage();
+        }
+        
+        function addChatMessage(message, isUser) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-bubble ${isUser ? 'user-bubble' : ''}`;
+            messageDiv.innerHTML = `<p class="text-sm">${message}</p>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function generateCulturalResponse(message) {
+            const responses = {
+                'sarna': '🌳 Sarna is the traditional religion of Jharkhand\'s tribal communities. It centers around the worship of nature, particularly sacred groves called "Sarna Sthal." The Sarna faith believes in one supreme deity called "Dharmesh" and emphasizes harmony with nature.',
+                'dance': '💃 Jharkhand has rich dance traditions! Popular dances include:\n• Chhau - Martial dance form\n• Jhumar - Harvest celebration dance\n• Karma - Performed during Karma festival\n• Santhal dance - Traditional tribal dance\n• Paika - Warrior dance form',
+                'folklore': '📚 Jharkhand folklore is rich with stories of:\n• Birsa Munda - The legendary freedom fighter\n• Tales of Sal trees and sacred groves\n• Stories of tribal heroes and their connection to nature\n• Myths about the origin of various tribes\n• Folk tales about animals and forest spirits'
+            };
+            
+            const lowerMessage = message.toLowerCase();
+            
+            for (let key in responses) {
+                if (lowerMessage.includes(key)) {
+                    return responses[key];
+                }
+            }
+            
+            return '🙏 Thank you for your question! Jharkhand has a incredibly rich cultural heritage spanning thousands of years. Our tribal communities have preserved ancient traditions, languages, and customs. Would you like to know about specific festivals, traditions, or historical sites?';
+        }
+        
+        function changeLanguage() {
+            const select = document.getElementById('languageSelect');
+            currentLanguage = select.value;
+            
+            // Update phrases
+            const phrases = translations[currentLanguage] || translations.en;
+            document.getElementById('welcomePhrase').textContent = phrases.welcome;
+            document.getElementById('thankPhrase').textContent = phrases.thank;
+            document.getElementById('goodbyePhrase').textContent = phrases.goodbye;
+        }
+        
+        function startVoiceNavigation() {
+            alert('🎤 Voice navigation would use Web Speech API to provide audio guidance in selected language. This is a demo version.');
+        }
+        
+        // Safety functions
+        function triggerSOS() {
+            if (confirm('🚨 This will send your location to emergency services and trusted contacts. Continue?')) {
+                alert('🚨 SOS ACTIVATED!\n\n✅ Location shared with emergency services\n✅ Nearest police station notified\n✅ Medical services alerted\n✅ Tourist helpline contacted\n\nHelp is on the way!');
+            }
+        }
+        
+        function callEmergency(number) {
+            alert(`📞 Calling ${number}...\n\nIn a real implementation, this would initiate a call to emergency services.`);
+        }
+        
+        function shareLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        alert(`📍 Location shared successfully!\n\nLatitude: ${position.coords.latitude.toFixed(6)}\nLongitude: ${position.coords.longitude.toFixed(6)}\n\nTrusted contacts have been notified.`);
+                    },
+                    (error) => {
+                        alert('❌ Unable to access location. Please enable location services.');
+                    }
+                );
+            } else {
+                alert('❌ Geolocation is not supported by this browser.');
+            }
+        }
+        
+        function downloadOfflineDirectory() {
+            alert('📱 Offline emergency directory downloaded!\n\nThis includes:\n• Emergency contact numbers\n• Nearest hospitals and police stations\n• Tourist helpline information\n• Safety guidelines\n\nAccessible without internet connection.');
+        }
+        
+        function showVerifiedServices() {
+            alert('✅ Showing blockchain-verified services:\n\n🏨 450 Verified Accommodations\n🚗 280 Certified Transport Providers\n👨‍🏫 520 Licensed Guides\n🏪 340 Trusted Local Vendors\n\nAll services verified through blockchain technology.');
+        }
+        
+        function enableAlerts() {
+            alert('🔔 Safety alerts enabled!\n\nYou will receive notifications for:\n• Weather warnings\n• Road conditions\n• Safety advisories\n• Emergency updates\n• Festival crowd alerts');
+        }
+        
+        // VR/AR functions
+        function startVRTour() {
+            alert('🥽 Starting VR Tour...\n\nIn a full implementation, this would:\n• Initialize WebXR session\n• Load 3D environment\n• Enable VR controls\n• Provide immersive 360° experience\n\nDemo version shows this alert.');
+        }
+        
+        function vrControl(action) {
+            const actions = {
+                play: '▶️ VR Tour playing...',
+                pause: '⏸️ VR Tour paused',
+                fullscreen: '🖥️ Entering fullscreen VR mode...'
+            };
+            alert(actions[action] || 'VR control activated');
+        }
+        
+        function selectVRDestination(destination) {
+            const destinations = {
+                netarhat: 'Netarhat Hill Station - Queen of Chotanagpur',
+                hundru: 'Hundru Falls - 320ft spectacular waterfall',
+                betla: 'Betla National Park - Wildlife and forest experience',
+                deoghar: 'Deoghar Temple - Sacred Baidyanath Jyotirlinga',
+                tribal: 'Tribal Villages - Authentic cultural experience'
+            };
+            
+            alert(`🎯 Selected: ${destinations[destination]}\n\nLoading immersive VR experience...\n\nThis would start a detailed 3D tour with:\n• 360° panoramic views\n• Interactive hotspots\n• Audio narration\n• Cultural information`);
+        }
+        
+        function enableARFilters() {
+            alert('📸 AR Photo Filters activated!\n\nAvailable filters:\n• Traditional tribal jewelry overlay\n• Jharkhand cultural elements\n• Festival decorations\n• Nature-themed frames\n\nPoint your camera and select a filter!');
+        }
+        
+        function enableARNavigation() {
+            alert('🧭 AR Navigation starting...\n\nThis would:\n• Access device camera\n• Overlay directional arrows\n• Show distance to destinations\n• Provide real-time guidance\n\nDemo version shows this alert.');
+        }
+        
+        function enableARInfo() {
+            alert('ℹ️ AR Information mode activated!\n\nPoint your camera at:\n• Landmarks for historical info\n• Plants for botanical details\n• Buildings for architectural facts\n• Cultural sites for significance\n\nInstant information overlay!');
+        }
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show home section by default
+            showSection('home');
+            
+            // Initialize language
+            changeLanguage();
+            
+            // Add some sample chat messages
+            setTimeout(() => {
+                addChatMessage('Welcome! I can tell you about Jharkhand\'s rich cultural heritage. What would you like to know?', false);
+            }, 1000);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9852cd5fc3567a1e',t:'MTc1ODg5MDEzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
